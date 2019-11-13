@@ -1,0 +1,64 @@
+{
+  "name": "@fn2/dev-server",
+  "version": "0.0.1",
+  "description": "Development server 💻",
+  "main": "dist/cjs/index.js",
+  "scripts": {
+    "build": "./bin/build",
+    "release": "./bin/release",
+    "test": "mocha",
+    "update": "ncu -u"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fn2/dev-server.git"
+  },
+  "author": "Winton Welsh <mail@wintoni.us>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fn2/dev-server/issues"
+  },
+  "homepage": "https://github.com/fn2/dev-server#readme",
+  "devDependencies": {
+    "@types/fs-extra": "8.0.1",
+    "@types/mocha": "5.2.7",
+    "@types/node": "12.12.7",
+    "@typescript-eslint/eslint-plugin": "2.7.0",
+    "@typescript-eslint/parser": "2.7.0",
+    "eslint": "6.6.0",
+    "eslint-config-prettier": "6.5.0",
+    "eslint-plugin-prettier": "3.1.1",
+    "expect": "24.9.0",
+    "express": "4.17.1",
+    "husky": "3.0.9",
+    "lint-staged": "9.4.2",
+    "mocha": "6.2.2",
+    "npm-check-updates": "3.2.1",
+    "prettier": "1.19.1",
+    "release-it": "12.4.3",
+    "rollup": "1.27.0",
+    "semver": "6.3.0",
+    "ts-node": "8.5.0",
+    "typescript": "3.7.2"
+  },
+  "dependencies": {
+    "@types/express": "4.17.2",
+    "fs-extra": "8.1.0",
+    "globby": "10.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test"
+    }
+  },
+  "lint-staged": {
+    "*.{css,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,jsx,ts}": [
+      "eslint --ignore-path .gitignore --fix",
+      "git add"
+    ]
+  }
+}
