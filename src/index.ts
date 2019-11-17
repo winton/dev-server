@@ -21,7 +21,7 @@ export class DevServer {
           await fs.readFile(paths[0])
         ).toString()
         res.header("Content-Type", "text/javascript")
-        res.end(body)
+        res.send(body)
       } else {
         res.status(404).send("404 Not Found")
       }
